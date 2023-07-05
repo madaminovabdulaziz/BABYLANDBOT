@@ -7,7 +7,7 @@ from aiogram.dispatcher import FSMContext
 from states.main_state import Main
 
 
-@dp.message_handler(CommandStart(), state="*")
+@dp.message_handler(CommandStart(), chat_id=ADMINS, state="*")
 async def bot_start(message: types.Message, state: FSMContext):
     await message.answer('🏠 Bosh menyu', reply_markup=main)
     await Main.main_menu.set()
